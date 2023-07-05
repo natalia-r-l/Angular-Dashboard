@@ -35,6 +35,9 @@ export class DashboardComponent {
     this.exibirPieChart();
     this.exibir3dPieChart();
     this.exibirDonutChart();
+    this.exibirBarChart();
+    this.exibirLineChart();
+    this. exibirColumnChart();
   }
 
   exibirPieChart(): void {
@@ -60,6 +63,27 @@ export class DashboardComponent {
 
     opcoes['pieHole'] = 0.4;
     chart.draw(this.obterDataTable(), opcoes);
+  }
+
+  exibirBarChart(): void {
+    const el = document.getElementById('bar_chart');
+    const chart = new google.visualization.BarChart(el);
+
+    chart.draw(this.obterDataTable(), this.obterOpcoes());
+  }
+
+  exibirLineChart(): void {
+    const el = document.getElementById('line_chart');
+    const chart = new google.visualization.LineChart(el);
+
+    chart.draw(this.obterDataTable(), this.obterOpcoes());
+  }
+
+  exibirColumnChart(): void {
+    const el = document.getElementById('column_chart');
+    const chart = new google.visualization.ColumnChart(el);
+
+    chart.draw(this.obterDataTable(), this.obterOpcoes());
   }
 
   obterDataTable(): any{
