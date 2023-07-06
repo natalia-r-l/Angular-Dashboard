@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { DadosService } from './dados.service';
+
+
 declare var google: any;
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+ 
 })
 export class DashboardComponent {
 
   private dados: any;
+
 
   constructor(private dadosService: DadosService){}
 
@@ -90,7 +94,7 @@ export class DashboardComponent {
     const data = new google.visualization.DataTable();
 
     data.addColumn('string', 'Mês');
-    data.addColumn('number', 'Quantidade');
+    data.addColumn('number', 'nº');
     data.addRows(this.dados);
 
     return data;
@@ -98,7 +102,7 @@ export class DashboardComponent {
   
   obterOpcoes(): any {
     return {
-      'title': 'Quantidade de cadastros primeiro semestre',
+      'title': 'Cadastros de Clientes',
       'width': 400,
       'height': 300,
     };
